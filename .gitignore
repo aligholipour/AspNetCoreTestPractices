@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#ncrunch
+.ncrunchsolution
+.ncrunchsolution.user
+
+._NCrunch_AspNetCoreTestPractices/
