@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace AspNetCore.UnitTest
+namespace AspNetCore.Test.Unit.XmlSerialize
 {
     public class XmlSerializationTest
     {

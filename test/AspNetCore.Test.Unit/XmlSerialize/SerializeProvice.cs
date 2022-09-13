@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using System.Text;
 
-namespace AspNetCore.UnitTest
+namespace AspNetCore.Test.Unit.XmlSerialize
 {
     public class SerializeProvice
     {
