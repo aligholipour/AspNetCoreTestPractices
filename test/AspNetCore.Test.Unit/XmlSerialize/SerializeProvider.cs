@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AspNetCore.Test.Unit.XmlSerialize
 {
-    public class SerializeProvice
+    public static class SerializeProvider
     {
         public static string Serialize(object target)
         {

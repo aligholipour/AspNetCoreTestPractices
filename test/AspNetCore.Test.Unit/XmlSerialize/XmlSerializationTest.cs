@@ -12,7 +12,7 @@ namespace AspNetCore.Test.Unit.XmlSerialize
             var expected = "<Customer></Customer>";
 
             //Act
-            var serialize = SerializeProvice.Serialize(customer);
+            var serialize = SerializeProvider.Serialize(customer);
 
             //Assert
             serialize.Should().Be(expected);
@@ -21,7 +21,7 @@ namespace AspNetCore.Test.Unit.XmlSerialize
         [Fact]
         public void serialize_empty_string_for_null_valuse()
         {
-            var serialize = SerializeProvice.Serialize(null);
+            var serialize = SerializeProvider.Serialize(null);
 
             serialize.Should().BeEmpty();
         }
@@ -36,7 +36,7 @@ namespace AspNetCore.Test.Unit.XmlSerialize
                                "<LastName>Doe</LastName>" +
                            "</Person>";
 
-            var serialize = SerializeProvice.Serialize(person);
+            var serialize = SerializeProvider.Serialize(person);
 
             serialize.Should().Be(expected);
         }
