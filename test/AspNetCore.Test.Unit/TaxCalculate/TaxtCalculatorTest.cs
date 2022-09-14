@@ -6,15 +6,18 @@ namespace AspNetCore.Test.Unit.TaxCalculate
 {
     public class TaxtCalculatorTest
     {
-        [Fact]
-        public void tax_is_subtrack_from_salary()
+        [InlineData(1000000, 9, 910000)]
+        [InlineData(1000000, 9.5, 905000)]
+        [InlineData(1000000, 0, 1000000)]
+        [Theory]
+        public void tax_is_subtrack_from_salary(long salary, double taxRate, double expected)
         {
-            var repository = new StupRaxRepository();
+            var repository = StubRaxRepository.CreateNewStub().WhichReturnsTaxRateAs(taxRate);
             var service = new TaxService(repository);
 
-            var salaryWithoutTax = service.CalculateSalary(1000000);
+            var salaryWithoutTax = service.CalculateSalary(salary);
 
-            salaryWithoutTax.Should().Be(910000);
+            salaryWithoutTax.Should().Be(expected);
         }
     }
 }
