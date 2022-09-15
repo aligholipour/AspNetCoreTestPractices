@@ -13,7 +13,7 @@ namespace AspNetCore.Test.Unit.TaxCalculate
         public void tax_is_subtrack_from_salary(long salary, double taxRate, double expected)
         {
             var repository = StubRaxRepository.CreateNewStub().WhichReturnsTaxRateAs(taxRate);
-            var service = new TaxService(repository);
+            var service = new TaxService(repository, new DummyLogger());
 
             var salaryWithoutTax = service.CalculateSalary(salary);
 
