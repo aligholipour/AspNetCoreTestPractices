@@ -1,4 +1,4 @@
-﻿using ConsoleApp;
+﻿using ConsoleApp.Tax;
 
 namespace AspNetCore.Test.Unit.TaxCalculate.TestDoubles
 {

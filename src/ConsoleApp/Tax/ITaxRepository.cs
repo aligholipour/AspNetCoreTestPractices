@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp
+﻿namespace ConsoleApp.Tax
 {
     public interface ITaxRepository
     {

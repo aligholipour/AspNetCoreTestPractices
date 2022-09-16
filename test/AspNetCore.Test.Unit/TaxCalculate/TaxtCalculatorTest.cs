@@ -1,5 +1,5 @@
 ﻿using AspNetCore.Test.Unit.TaxCalculate.TestDoubles;
-using ConsoleApp;
+using ConsoleApp.Tax;
 using FluentAssertions;
 
 namespace AspNetCore.Test.Unit.TaxCalculate
