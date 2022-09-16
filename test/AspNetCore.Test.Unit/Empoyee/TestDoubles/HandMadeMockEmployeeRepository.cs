@@ -1,4 +1,5 @@
-﻿using ConsoleApp.Employee;
+﻿using ConsoleApp.Employees;
+using ConsoleApp.Infrastructure.Repository;
 
 namespace AspNetCore.Test.Unit.Empoyee.TestDoubles
 {
@@ -13,6 +14,12 @@ namespace AspNetCore.Test.Unit.Empoyee.TestDoubles
             else
                 _methodCalls.Add(nameof(Create), new MethodCall(employee, 1));
         }
+
+        public Employee GetById(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
         public MethodCall GetCall(string methodName)
         {
             return _methodCalls[methodName];

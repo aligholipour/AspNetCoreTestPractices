@@ -1,4 +1,5 @@
-﻿using ConsoleApp.Employee;
+﻿using ConsoleApp.Employees;
+using ConsoleApp.Infrastructure.Repository;
 using NSubstitute;
 
 namespace AspNetCore.Test.Unit.Empoyee
@@ -10,12 +11,11 @@ namespace AspNetCore.Test.Unit.Empoyee
         {
             var mockRepository = Substitute.For<IEmployeeRepository>();
             var employeeService = new EmployeeService(mockRepository);
-            var expected = new Employee() { Firstname = "john", Lastname = "doe" };
+            var expected = new Employee(1, "john", "doe");
 
-            employeeService.RegisterEmployee("john", "doe");
+            employeeService.RegisterEmployee(new EmployeeDto { Id= 1, Firstname = "john", Lastname = "doe" });
 
             mockRepository.Received(1).Create(Arg.Is<Employee>(e => e.Firstname == "john" && e.Lastname == "doe"));
-
         }
     }
 }

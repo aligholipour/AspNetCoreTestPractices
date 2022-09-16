@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp.Employee
+﻿using ConsoleApp.Infrastructure.Repository;
+
+namespace ConsoleApp.Employees
 {
     public class EmployeeService
     {
@@ -7,13 +9,9 @@
         {
             _employeeRepository = employeeRepository;
         }
-        public void RegisterEmployee(string firstName, string lastName)
+        public void RegisterEmployee(EmployeeDto employeeDto)
         {
-            var employee = new Employee
-            {
-                Firstname = firstName,
-                Lastname = lastName
-            };
+            var employee = new Employee(employeeDto.Id, employeeDto.Firstname, employeeDto.Lastname);
 
             _employeeRepository.Create(employee);
         }
