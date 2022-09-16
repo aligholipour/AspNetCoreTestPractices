@@ -1,6 +1,5 @@
-﻿using AspNetCore.Test.Unit.Empoyee.TestDoubles;
-using ConsoleApp.Employee;
-using FluentAssertions;
+﻿using ConsoleApp.Employee;
+using NSubstitute;
 
 namespace AspNetCore.Test.Unit.Empoyee
 {
@@ -9,14 +8,14 @@ namespace AspNetCore.Test.Unit.Empoyee
         [Fact]
         public void save_employee_on_registration()
         {
-            var mockRespository = new HandMadeMockEmployeeRepository();
-            var employeeService = new EmployeeService(mockRespository);
+            var mockRepository = Substitute.For<IEmployeeRepository>();
+            var employeeService = new EmployeeService(mockRepository);
             var expected = new Employee() { Firstname = "john", Lastname = "doe" };
 
             employeeService.RegisterEmployee("john", "doe");
 
-            mockRespository.GetCall(nameof(IEmployeeRepository.Create)).CallTimes.Should().Be(1);
-            mockRespository.GetCall(nameof(IEmployeeRepository.Create)).PassedArgument.Should().BeEquivalentTo(expected);
+            mockRepository.Received(1).Create(Arg.Is<Employee>(e => e.Firstname == "john" && e.Lastname == "doe"));
+
         }
     }
 }
