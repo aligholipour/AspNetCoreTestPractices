@@ -15,7 +15,7 @@ namespace AspNetCore.Test.Unit.Empoyee.TestDoubles
                 _methodCalls.Add(nameof(Create), new MethodCall(employee, 1));
         }
 
-        public Employee GetById(int employeeId)
+        public Employee GetByFirstItem()
         {
             throw new NotImplementedException();
         }

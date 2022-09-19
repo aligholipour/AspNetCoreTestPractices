@@ -4,6 +4,7 @@
       <FixtureTestSelector>
         <FixtureName>AspNetCore.Test.Integration.Employees.EmployeServiceTest</FixtureName>
       </FixtureTestSelector>
+      <AllTestsSelector />
     </IgnoredTests>
   </Settings>
 </ProjectConfiguration>

@@ -17,11 +17,11 @@ namespace AspNetCore.Test.Integration.Employees
                 Lastname = "doe"
             };
 
-            var expected = new Employee(1, "john", "doe");
-
             service.RegisterEmployee(employeeDto);
 
-            var actual = repository.GetById(1);
+            var actual = repository.GetByFirstItem();
+
+            var expected = new Employee(actual.Id, "john", "doe");
 
             actual.Should().BeEquivalentTo(expected);
         }

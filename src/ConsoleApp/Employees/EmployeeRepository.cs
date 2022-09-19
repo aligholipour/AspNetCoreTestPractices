@@ -17,9 +17,9 @@ namespace ConsoleApp.Employees
             _context.SaveChanges();
         }
 
-        public Employee GetById(int employeeId)
+        public Employee GetByFirstItem()
         {
-            return _context.Employees.FirstOrDefault(x => x.Id == employeeId);
+            return _context.Employees.FirstOrDefault();
         }
     }
 }
