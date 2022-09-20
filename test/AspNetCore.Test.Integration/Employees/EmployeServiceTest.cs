@@ -17,8 +17,11 @@ namespace AspNetCore.Test.Integration.Employees
                 Lastname = "doe"
             };
 
+
             service.RegisterEmployee(employeeDto);
 
+            DetachAllEntities();
+            
             var actual = repository.GetByFirstItem();
 
             var expected = new Employee(actual.Id, "john", "doe");
