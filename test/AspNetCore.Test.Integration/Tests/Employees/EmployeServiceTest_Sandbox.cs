@@ -1,7 +1,8 @@
-﻿using ConsoleApp.Employees;
+﻿using AspNetCore.Test.Integration.Utils;
+using ConsoleApp.Employees;
 using FluentAssertions;
 
-namespace AspNetCore.Test.Integration.Employees
+namespace AspNetCore.Test.Integration.Tests.Employees
 {
     public class EmployeServiceTest_Sandbox : SandboxPersistTest
     {

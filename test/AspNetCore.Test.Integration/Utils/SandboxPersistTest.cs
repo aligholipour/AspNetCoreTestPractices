@@ -3,7 +3,7 @@ using ConsoleApp.Infrastructure;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-namespace AspNetCore.Test.Integration
+namespace AspNetCore.Test.Integration.Utils
 {
     public class SandboxPersistTest : IDisposable
     {
@@ -14,7 +14,7 @@ namespace AspNetCore.Test.Integration
             DbContext = AppDbContextFactory.Create(new SqlConnection(connectionString));
             MigrateToDatabaseLatestVersion(DbContext);
         }
-        
+
         public void Dispose()
         {
             DbContext.Database.EnsureDeleted();

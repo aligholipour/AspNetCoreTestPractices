@@ -1,7 +1,8 @@
-﻿using ConsoleApp.Employees;
+﻿using AspNetCore.Test.Integration.Utils;
+using ConsoleApp.Employees;
 using FluentAssertions;
 
-namespace AspNetCore.Test.Integration.Employees
+namespace AspNetCore.Test.Integration.Tests.Employees
 {
     public class EmployeServiceTest : PersistTest
     {
@@ -19,7 +20,7 @@ namespace AspNetCore.Test.Integration.Employees
             service.RegisterEmployee(employeeDto);
 
             //DetachAllEntities();
-            
+
             var actual = repository.GetByFirstItem();
 
             var expected = new Employee(actual.Id, "john", "doe");

@@ -3,7 +3,7 @@ using ConsoleApp.Infrastructure;
 using Microsoft.Data.SqlClient;
 using System.Transactions;
 
-namespace AspNetCore.Test.Integration
+namespace AspNetCore.Test.Integration.Utils
 {
     public abstract class PersistTest : IDisposable
     {
@@ -14,7 +14,7 @@ namespace AspNetCore.Test.Integration
             _scope = new TransactionScope();
             DbContext = AppDbContextFactory.Create(new SqlConnection(Constants.ConnectionStrng));
         }
-        
+
         public void Dispose()
         {
             DbContext.Dispose();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AspNetCore.Test.Integration
+namespace AspNetCore.Test.Integration.Utils
 {
     public class Constants
     {
