@@ -3,7 +3,7 @@ using FluentAssertions;
 
 namespace AspNetCore.Test.Integration.Employees
 {
-    public class EmployeServiceTest : PersistTest
+    public class EmployeServiceTest_Sandbox : SandboxPersistTest
     {
         [Fact]
         public void saves_a_employee_into_database()
@@ -18,8 +18,6 @@ namespace AspNetCore.Test.Integration.Employees
 
             service.RegisterEmployee(employeeDto);
 
-            //DetachAllEntities();
-            
             var actual = repository.GetByFirstItem();
 
             var expected = new Employee(actual.Id, "john", "doe");

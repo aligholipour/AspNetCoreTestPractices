@@ -1,30 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ConsoleApp.Data;
+using ConsoleApp.Infrastructure;
+using Microsoft.Data.SqlClient;
 using System.Transactions;
 
 namespace AspNetCore.Test.Integration
 {
-    public class PersistTest<T> : IDisposable where T : DbContext, new()
+    public abstract class PersistTest : IDisposable
     {
         private TransactionScope _scope;
-        protected T DbContext;
+        protected AppDbContext DbContext;
         protected PersistTest()
         {
             _scope = new TransactionScope();
-            DbContext = new T();
+            DbContext = AppDbContextFactory.Create(new SqlConnection(Constants.ConnectionStrng));
         }
-        public void DetachAllEntities()
-        {
-            var changedEntriesCopy = this.DbContext.ChangeTracker.Entries()
-                .Where(e => e.State == EntityState.Added ||
-                            e.State == EntityState.Modified ||
-                            e.State == EntityState.Deleted)
-                .ToList();
-
-            foreach (var entry in changedEntriesCopy)
-                entry.State = EntityState.Deleted;
-        }
+        
         public void Dispose()
         {
+            DbContext.Dispose();
             _scope.Dispose();
         }
     }
