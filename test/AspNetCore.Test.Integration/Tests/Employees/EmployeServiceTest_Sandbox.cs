@@ -19,6 +19,8 @@ namespace AspNetCore.Test.Integration.Tests.Employees
 
             service.RegisterEmployee(employeeDto);
 
+            this.DbContext.DetachAllEntities();
+
             var actual = repository.GetByFirstItem();
 
             var expected = new Employee(actual.Id, "john", "doe");

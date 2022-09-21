@@ -19,7 +19,7 @@ namespace AspNetCore.Test.Integration.Tests.Employees
 
             service.RegisterEmployee(employeeDto);
 
-            //DetachAllEntities();
+            this.DbContext.DetachAllEntities();
 
             var actual = repository.GetByFirstItem();
 
