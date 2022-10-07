@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AspNetCore.Test.Integration.Utils
+﻿namespace AspNetCore.Test.Integration.Utils
 {
     public class Constants
     {
